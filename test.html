@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <style>
+        body {
+            zoom: 300%;
+        }
+        </style>
+        <script src=http://fukuno.jig.jp/fukuno.js></script>
+        <script>
+            var set = function(c, delay) {
+                setTimeout(function() {
+                    jsonp("http://localhost:8080/" + c + fixnum(rnd(1000), 3))
+                }, delay)
+            }
+            window.onload = function() {
+                btn.onclick = function() {
+                    var s = str.value
+                    for (var i = 0; i < s.length; i++) {
+                        var c = s.charAt(i)
+                        set(c, i * 1000)
+                    }
+                }
+            }
+            </script>
+    </head>
+<body>
+    <input type=text id=str>
+    <button id=btn>send</button>
+</body>
+</html>
