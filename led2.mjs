@@ -1,6 +1,8 @@
 import SerialPort from 'serialport'
+import dotenv from 'dotenv'
+dotenv.config()
 
-const driver = '/dev/tty.SLAB_USBtoUART'
+const driver = process.env.SERIAL_DRIVER
 const port = new SerialPort(driver, { baudRate: 115200 })
 
 const command = function (s) {

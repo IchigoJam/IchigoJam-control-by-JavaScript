@@ -5,7 +5,7 @@ const main = async () => {
   const port = gpio.ports.get('LED')
   await port.export('out') // export (activate) the port.
   let v = 1
-  setInterval(() => {
+  setInterval(function () {
     port.write(v)
     v = 1 - v
   }, 500)
